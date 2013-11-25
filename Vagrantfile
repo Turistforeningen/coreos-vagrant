@@ -7,4 +7,10 @@ Vagrant.configure("2") do |config|
  
   config.vm.synced_folder "./", "/vagrant"
   config.vm.synced_folder "./../docker", "/srv/containers"
+
+  # Fix docker not being able to resolve private registry in VirtualBox
+  config.vm.provider :virtualbox do |vb, override|
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+  end
 end
