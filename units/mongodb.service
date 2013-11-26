@@ -5,7 +5,7 @@ After=docker.service
 
 [Service]
 Restart=always
-ExecStart=/usr/bin/docker run -p 27017:27017 --name mongo turistforeningen/mongo
+ExecStart=/usr/bin/docker run -d --name mongo turistforeningen/mongo
 RestartSec=10s
 
 [Install]

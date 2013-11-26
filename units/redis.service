@@ -5,7 +5,7 @@ After=docker.service
 
 [Service]
 Restart=always
-ExecStart=/usr/bin/docker -p 6379:6379 run --name redis turistforeningen/redis
+ExecStart=/usr/bin/docker run -d --name redis turistforeningen/redis
 RestartSec=10s
 
 [Install]
