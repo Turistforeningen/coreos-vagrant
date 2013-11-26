@@ -1,0 +1,13 @@
+[Unit]
+Description=Redis
+After=etcd.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker -p 6379:6379 run --name redis turistforeningen/redis
+RestartSec=10s
+
+[Install]
+WantedBy=local.target
+
